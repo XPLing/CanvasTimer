@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="" height=""></canvas>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var ctx=$("#canvas")[0].getContext("2d");
+			$("#canvas")[0].width=600;
+			function Sobj(name,age){
+				this.name = name;
+				this.age  = age;
+			}
+			Sobj.prototype = {
+				alertSome: function (){
+					var _this = this;
+					console.log(_this.name);
+				},
+				clear: function(name,age){
+					var _this = this;
+					_this.name = name;
+					_this.age = age;
+					clearInterval(_this.timer);
+					_this.timer = setInterval(function (){
+						_this.alertSome();
+					},1000);
+				}
+			};
+			Sobj.clear = function (){
+				var _this = new this("xxx",27);
+				_this.alertSome();
+				console.log(_this);
+				
+			};
+			Sobj.init = function (elem,name,age){
+				var _this = new this(name,age);
+				/*this.timer = setInterval(function (){
+					_this.alertSome();
+				},1000);*/
+				window.onresize = function (){
+					clearInterval(_this.timer);
+					_this.clear("xxx",29);
+					//console.log("resize");
+				};
+			};
+			$.fn.myobj = function (name,age){
+				var _this = this;
+				return Sobj.init(_this,name,age);
+			};
+			$("#canvas").myobj("xpl",22);
+			
+
+		</script>
+	</body>
+</html>

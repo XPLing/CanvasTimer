@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <title>Canvas计时器</title>
+</head>
+<body>
+<div class="warp">
+	<canvas id="canvas"></canvas>
+</div>
+
+<button type="button" id="aa">click</button>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+   $(function() {
+    /**
+     * [mycan description]
+     * @param {obj} opt [选项设置]
+     * @opt countDown {[是否为倒计时，默认为true]}
+     * @opt endT [必填，截止时间,格式为yyyy/mm/dd hh/mm/ss或者为整数,例：2017/2/9 22:22:00,如果countDown为false时,填写今天的日期即可]
+     */
+     var mycan = $("#canvas").myCanvas({
+       endT: "1",
+       countDown:false
+     });
+   });
+   
+	
+</script>
+</body>
+</html>
