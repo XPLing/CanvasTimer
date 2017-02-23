@@ -1,4 +1,4 @@
-(function (window, document, $){
+﻿(function (window, document, $){
 	/**
 	 * [ditgit description]
 	 * @type {数字数组}
@@ -646,9 +646,11 @@
 		}
 		 	  
 	};
-	$.fn.myCanvas = function(opt) {
-		var _this = this;		
-		return Canvas.init(_this,opt);
+	$.fn.myCanvas = function(opt) {			
+		this.each(function() {
+			var _this = $(this);	
+			Canvas.init(_this,opt);
+		});
 	};
 
 })(window, document, jQuery);
